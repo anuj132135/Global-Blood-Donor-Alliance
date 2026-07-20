@@ -5,7 +5,7 @@
 ![MERN Stack](https://img.shields.io/badge/Stack-MERN-green)
 ![Version](https://img.shields.io/badge/Version-1.0-blue)
 ![Status](https://img.shields.io/badge/Status-Under%20Development-orange)
-![License](https://img.shields.io/badge/License-MIT-yellow)
+
 
 ---
 
