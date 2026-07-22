@@ -1,0 +1,18 @@
+@import "tailwindcss";
+@import "@heroui/styles"; 
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+*{
+    box-sizing: border-box;
+}
+:root{
+    --primary-color: #F53A3F;
+    --bg-color: #120B0B;
+    --bg-box-color: #191113;
+    --text-color: white;
+}
