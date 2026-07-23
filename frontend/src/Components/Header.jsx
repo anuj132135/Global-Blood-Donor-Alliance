@@ -1,13 +1,14 @@
 import React from "react";
 import logo from "../assets/logo.png";
+import {Button} from "@heroui/react";
 
 function Header() {
   return (
     <>
       <nav className="relative backdrop-blur-xs sticky top-0 after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-white/10">
-        <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-2 md:px-6 lg:px-8">
           <div className="relative flex h-16 items-center justify-between">
-            <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
+            <div className="absolute inset-y-0 left-0 flex items-center md:hidden">
               <button
                 type="button"
                 command="--toggle"
@@ -48,7 +49,8 @@ function Header() {
                 </svg>
               </button>
             </div>
-            <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+            <div className="flex flex-1 items-center justify-center md:items-stretch md:justify-start ">
+              {/* Logo */}
               <div className="flex shrink-0 items-center">
                 <img
                   src={logo}
@@ -56,12 +58,13 @@ function Header() {
                   className="h-10 w-auto"
                 />
               </div>
-              <div className="hidden sm:ml-6 sm:block">
+              {/* desktop navbar */}
+              <div className="hidden md:ml-6 md:block">
                 <div className="flex space-x-4">
                   <a
                     href="#"
                     aria-current="page"
-                    className="rounded-md bg-gray-950/50 px-3 py-2 text-sm font-medium text-white"
+                    className="rounded-md border-b-1 border-[var(--primary-color)] px-3 py-2 text-sm font-medium text-white"
                   >
                     Home
                   </a>
@@ -86,8 +89,15 @@ function Header() {
                 </div>
               </div>
             </div>
-            <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-              {/* <button
+            {/* Buttons */}
+            <div className="hidden md:ml-6 md:block absolute inset-y-0 right-0 flex items-center pr-2 md:static md:inset-auto md:ml-6 md:pr-0">
+              <Button variant="ghost" className="text-[var(--text-color)] mx-2">Login</Button>
+              <Button variant="outline" className="text-[var(--text-color)] mx-2">Register</Button>
+              <Button variant="danger" className="bg-[var(--primary-color)] mx-2">Become a Donor</Button>
+            </div>
+            {/* User Profile */}
+            <div className="absolute inset-y-0 right-0 flex items-center pr-2 md:static md:inset-auto md:ml-6 md:pr-0">
+              <button
                 type="button"
                 className="relative rounded-full p-1 text-gray-400 hover:text-white focus:outline-2 focus:outline-offset-2 focus:outline-indigo-500"
               >
@@ -145,39 +155,42 @@ function Header() {
                     Sign out
                   </a>
                 </el-menu>
-              </el-dropdown> */}
+              </el-dropdown>
               
             </div>
           </div>
         </div>
 
-        <el-disclosure id="mobile-menu" hidden className="block sm:hidden">
+        <el-disclosure id="mobile-menu" hidden className="block md:hidden">
           <div className="space-y-1 px-2 pt-2 pb-3">
             <a
               href="#"
               aria-current="page"
-              className="block rounded-md bg-gray-950/50 px-3 py-2 text-base font-medium text-white"
+              className="block rounded-md border-b-2 border-[var(--primary-color)] px-3 py-2 text-base font-medium text-white"
             >
-              Dashboard
+              Home
             </a>
             <a
               href="#"
               className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white"
             >
-              Team
+              About
             </a>
             <a
               href="#"
               className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white"
             >
-              Projects
+              Contact Us
             </a>
             <a
               href="#"
               className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white"
             >
-              Calendar
+              Help & Support
             </a>
+             <Button variant="ghost" className="text-[var(--text-color)] mx-2 my-2 hover:text-black w-full">Login</Button>
+              <Button variant="outline" className="text-[var(--text-color)] mx-2 my-2 w-full">Register</Button>
+              <Button variant="danger" className="bg-[var(--primary-color)] mx-2 my-2 w-full">Become a Donor</Button>
           </div>
         </el-disclosure>
       </nav>
