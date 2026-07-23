@@ -14,7 +14,7 @@ function Home() {
             Global Blood Donor Alliance
           </p>
           <h1 className=" text-5xl md:text-7xl/21 my-4 text-center md:text-left">
-            Every <span className="text-[var(--primary-color)]">Drop</span>
+            Every <span className="text-[var(--primary-color)]">Drop </span>
             Saves a Life
           </h1>
           <p className="text-center md:text-left">
