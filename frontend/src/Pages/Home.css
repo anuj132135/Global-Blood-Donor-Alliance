@@ -6,8 +6,8 @@
 }
 .hero-image {
   margin: 2rem;
-  width: 20rem;
-  height: 20rem;
+  width: 18rem;
+  height: 18rem;
   background-color: var(--text-color);
   border-radius: 20px;
   box-shadow: 0px 0px 20px var(--primary-color);
@@ -53,5 +53,28 @@
   }
   to {
     transform: scale(100%);
+  }
+}
+.counter h1{
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 2rem;
+  color: var(--primary-color);
+}
+.search-donors h1, .emergency h1{
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+.ambulance{
+  animation: ambulance 1s linear infinite alternate;
+}
+@keyframes ambulance {
+  from {
+    transform: translateY(10px);
+  }
+  to {
+    transform: translateY(-10px);
   }
 }
