@@ -1,5 +1,5 @@
 
-.hero-section > h1 {
+.hero-section > h1 , .search-donors h1, .emergency h1, .whyChoose h1, .card__title, .how-it-works h1, .compatibility span, .compatibility h1, .featured-donors h1{
   font-family: "Poppins", sans-serif;
   font-weight: 700;
   font-style: normal;
@@ -55,6 +55,7 @@
     transform: scale(100%);
   }
 }
+
 .counter h1{
   font-family: "Poppins", sans-serif;
   font-weight: 700;
@@ -62,11 +63,7 @@
   font-size: 2rem;
   color: var(--primary-color);
 }
-.search-donors h1, .emergency h1{
-  font-family: "Poppins", sans-serif;
-  font-weight: 700;
-  font-style: normal;
-}
+
 .ambulance{
   animation: ambulance 1s linear infinite alternate;
 }
@@ -77,4 +74,27 @@
   to {
     transform: translateY(-10px);
   }
+}
+.whyChoose .card:hover{
+  box-shadow: 0px 0px 5px var(--primary-color);
+}
+.whyChoose .card svg{
+  padding: 1rem;
+  width: 4rem;
+}
+.whyChoose .card:hover svg{
+  background-color: #411e1f;
+  border-radius: 100%;
+}
+.how-it-works-card::after{
+  z-index: -1;
+
+}
+.compatibility .card:hover{
+  box-shadow: 0px 0px 5px var(--primary-color);
+  transform: translateY(-5px);
+}
+.compatibility .card:hover>span{
+ color: var(--text-color); 
+ background-color: var(--primary-color);
 }

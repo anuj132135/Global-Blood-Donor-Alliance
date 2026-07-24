@@ -3,6 +3,7 @@ import logo from "../assets/logo.png";
 import {Button} from "@heroui/react";
 
 function Header() {
+  
   return (
     <>
       <nav className="relative z-10 backdrop-blur-xs sticky top-0 after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-white/10">
