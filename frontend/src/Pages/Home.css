@@ -1,5 +1,5 @@
 
-.hero-section > h1 , .search-donors h1, .emergency h1, .whyChoose h1, .card__title, .how-it-works h1, .compatibility span, .compatibility h1, .featured-donors h1{
+.hero-section > h1 , .search-donors h1, .emergency h1, .whyChoose h1, .card__title, .how-it-works h1, .compatibility span, .compatibility h1, .featured-donors h1, .nearby-hospitals h1, .nearby-bank h1, .testimonials h1{
   font-family: "Poppins", sans-serif;
   font-weight: 700;
   font-style: normal;
@@ -75,8 +75,12 @@
     transform: translateY(-10px);
   }
 }
+.whyChoose .card{
+   transition:  0.5s ease;
+}
 .whyChoose .card:hover{
   box-shadow: 0px 0px 5px var(--primary-color);
+  animation-duration: 2s;
 }
 .whyChoose .card svg{
   padding: 1rem;
@@ -88,6 +92,10 @@
 }
 .how-it-works-card::after{
   z-index: -1;
+
+}
+.compatibility .card{
+   transition:  0.5s ease;
 
 }
 .compatibility .card:hover{
