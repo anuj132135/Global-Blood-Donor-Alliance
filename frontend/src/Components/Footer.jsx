@@ -5,7 +5,7 @@ import "./Footer.css"
 function Footer() {
   return (
     <>
-        <footer className='bg-[var(--bg-box-color)] p-8 lg:flex'  data-aos="fade-up">
+        <footer className='bg-[var(--bg-box-color)] p-8 lg:flex' data-aos="fade-up">
             <div className='mx-2 my-8 md:w-[40%]'>
                 <img src={logo} className='w-20 my-8' alt="Logo" />
                 <h1 className='text-4xl my-4'>Global Blood Donor Alliance</h1>
