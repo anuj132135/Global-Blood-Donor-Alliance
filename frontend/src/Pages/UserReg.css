@@ -1,0 +1,17 @@
+form{
+    margin-top: 3rem;
+}
+form label{
+    color: var(--text-color);
+    font-size: 1rem;
+    padding: 0.5rem 0;
+}
+form input{
+    width: 100%;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    border: 0.2px solid var(--primary-color);
+}
+form input:focus{
+    outline: 2.5px solid var(--primary-color);
+}

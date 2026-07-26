@@ -7,9 +7,9 @@ function Header() {
   return (
     <>
       <nav className="relative z-10 backdrop-blur-xs sticky top-0 after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-white/10">
-        <div className="mx-auto max-w-7xl px-2 md:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-2 lg:px-6 lg:px-8">
           <div className="relative flex h-16 items-center justify-between">
-            <div className="absolute inset-y-0 left-0 flex items-center md:hidden">
+            <div className="absolute inset-y-0 left-0 flex items-center lg:hidden">
               <button
                 type="button"
                 command="--toggle"
@@ -50,7 +50,7 @@ function Header() {
                 </svg>
               </button>
             </div>
-            <div className="flex flex-1 items-center justify-center md:items-stretch md:justify-start ">
+            <div className="flex flex-1 items-center justify-center lg:items-stretch lg:justify-start ">
               {/* Logo */}
               <div className="flex shrink-0 items-center">
                 <img
@@ -60,7 +60,7 @@ function Header() {
                 />
               </div>
               {/* desktop navbar */}
-              <div className="hidden md:ml-6 md:block">
+              <div className="hidden lg:ml-6 lg:block">
                 <div className="flex space-x-4">
                   <a
                     href="#"
@@ -91,13 +91,13 @@ function Header() {
               </div>
             </div>
             {/* Buttons */}
-            <div className="hidden md:ml-6 md:block absolute inset-y-0 right-0 flex items-center pr-2 md:static md:inset-auto md:ml-6 md:pr-0">
+            <div className="hidden lg:ml-6 lg:block absolute inset-y-0 right-0 flex items-center pr-2 lg:static lg:inset-auto lg:ml-6 lg:pr-0">
               <Button variant="ghost" className="text-[var(--text-color)] mx-2">Login</Button>
               <Button variant="outline" className="text-[var(--text-color)] mx-2">Register</Button>
               <Button variant="danger" className="bg-[var(--primary-color)] mx-2">Become a Donor</Button>
             </div>
             {/* User Profile */}
-            <div className="absolute inset-y-0 right-0 flex items-center pr-2 md:static md:inset-auto md:ml-6 md:pr-0">
+            <div className="absolute inset-y-0 right-0 flex items-center pr-2 lg:static lg:inset-auto lg:ml-6 lg:pr-0">
               <button
                 type="button"
                 className="relative rounded-full p-1 text-gray-400 hover:text-white focus:outline-2 focus:outline-offset-2 focus:outline-indigo-500"
@@ -162,7 +162,7 @@ function Header() {
           </div>
         </div>
 
-        <el-disclosure id="mobile-menu" hidden className="block md:hidden">
+        <el-disclosure id="mobile-menu" hidden className="block lg:hidden">
           <div className="space-y-1 px-2 pt-2 pb-3">
             <a
               href="#"

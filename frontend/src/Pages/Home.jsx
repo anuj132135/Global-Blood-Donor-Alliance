@@ -980,7 +980,7 @@ function Home() {
         </p>
         <div className=" md:mx-auto lg:w-[80%] md:grid md:grid-cols-3 lg:grid-cols-4">
           <Card className=" p-6 bg-[var(--bg-box-color)] rounded-2xl m-6 min-w-80 md:min-w-60  ">
-            <span className=" bg-[#411e1f] w-20 h-20 text-3xl flex justify-center items-center rounded-full text-[var(--primary-color)]">
+            <span className=" bg-[#411e1f] w-15 h-15 text-2xl flex justify-center items-center rounded-full text-[var(--primary-color)]">
               A+
             </span>
             <Card.Header>
@@ -991,7 +991,7 @@ function Home() {
             </Card.Header>
           </Card>
           <Card className=" p-6 bg-[var(--bg-box-color)] rounded-2xl m-6 min-w-80 md:min-w-60  ">
-            <span className=" bg-[#411e1f] w-20 h-20 text-3xl flex justify-center items-center rounded-full text-[var(--primary-color)]">
+            <span className=" bg-[#411e1f] w-15 h-15 text-2xl flex justify-center items-center rounded-full text-[var(--primary-color)]">
               A-
             </span>
             <Card.Header>
@@ -1002,7 +1002,7 @@ function Home() {
             </Card.Header>
           </Card>
           <Card className=" p-6 bg-[var(--bg-box-color)] rounded-2xl m-6 min-w-80 md:min-w-60  ">
-            <span className=" bg-[#411e1f] w-20 h-20 text-3xl flex justify-center items-center rounded-full text-[var(--primary-color)]">
+            <span className=" bg-[#411e1f] w-15 h-15 text-2xl flex justify-center items-center rounded-full text-[var(--primary-color)]">
               B+
             </span>
             <Card.Header>
@@ -1013,7 +1013,7 @@ function Home() {
             </Card.Header>
           </Card>
           <Card className=" p-6 bg-[var(--bg-box-color)] rounded-2xl m-6 min-w-80 md:min-w-60  ">
-            <span className=" bg-[#411e1f] w-20 h-20 text-3xl flex justify-center items-center rounded-full text-[var(--primary-color)]">
+            <span className=" bg-[#411e1f] w-15 h-15 text-2xl flex justify-center items-center rounded-full text-[var(--primary-color)]">
               B-
             </span>
             <Card.Header>
@@ -1024,7 +1024,7 @@ function Home() {
             </Card.Header>
           </Card>
           <Card className=" p-6 bg-[var(--bg-box-color)] rounded-2xl m-6 min-w-80 md:min-w-60  ">
-            <span className=" bg-[#411e1f] w-20 h-20 text-3xl flex justify-center items-center rounded-full text-[var(--primary-color)]">
+            <span className=" bg-[#411e1f] w-15 h-15 text-2xl flex justify-center items-center rounded-full text-[var(--primary-color)]">
               AB+
             </span>
             <Card.Header>
@@ -1035,7 +1035,7 @@ function Home() {
             </Card.Header>
           </Card>
           <Card className=" p-6 bg-[var(--bg-box-color)] rounded-2xl m-6 min-w-80 md:min-w-60  ">
-            <span className=" bg-[#411e1f] w-20 h-20 text-3xl flex justify-center items-center rounded-full text-[var(--primary-color)]">
+            <span className=" bg-[#411e1f] w-15 h-15 text-2xl flex justify-center items-center rounded-full text-[var(--primary-color)]">
               AB-
             </span>
             <Card.Header>
@@ -1046,7 +1046,7 @@ function Home() {
             </Card.Header>
           </Card>
           <Card className=" p-6 bg-[var(--bg-box-color)] rounded-2xl m-6 min-w-80 md:min-w-60  ">
-            <span className=" bg-[#411e1f] w-20 h-20 text-3xl flex justify-center items-center rounded-full text-[var(--primary-color)]">
+            <span className=" bg-[#411e1f] w-15 h-15 text-2xl flex justify-center items-center rounded-full text-[var(--primary-color)]">
               O+
             </span>
             <Card.Header>
@@ -1057,7 +1057,7 @@ function Home() {
             </Card.Header>
           </Card>
           <Card className=" p-6 bg-[var(--bg-box-color)] rounded-2xl m-6 min-w-80 md:min-w-60  ">
-            <span className=" bg-[#411e1f] w-20 h-20 text-3xl flex justify-center items-center rounded-full text-[var(--primary-color)]">
+            <span className=" bg-[#411e1f] w-15 h-15 text-2xl flex justify-center items-center rounded-full text-[var(--primary-color)]">
               O-
             </span>
             <Card.Header>

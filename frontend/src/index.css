@@ -22,3 +22,8 @@ body{
     background-color: var(--primary-color);
     color: var(--bg-color);
 }
+.customFont{
+    font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
