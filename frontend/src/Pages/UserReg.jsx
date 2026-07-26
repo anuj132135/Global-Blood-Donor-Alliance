@@ -399,7 +399,7 @@ function UserReg() {
         <div className="form lg:w-[60%] relative z-10 p-8 lg:p-20 my-20 m-2 rounded-xl lg:m-20 bg-[var(--bg-box-color)]">
           <h1 className="customFont text-3xl lg:text-4xl ">
             <img src={Logo} alt="Logo" className="w-15 mr-4 my-4 lg:hidden" />
-            Create You Account
+            Create Your Account
           </h1>
           <p className="my-4">
             Fill in your details below to become a part of our life-saving
