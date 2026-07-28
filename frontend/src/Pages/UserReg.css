@@ -6,12 +6,18 @@ form label{
     font-size: 1rem;
     padding: 0.5rem 0;
 }
-form input{
+form input, select{
     width: 100%;
     background-color: var(--bg-color);
+    padding: 5px;
+    border-radius: 10px;
     color: var(--text-color);
-    border: 0.2px solid var(--primary-color);
+    /* border: 0.2px solid var(--primary-color); */
 }
-form input:focus{
+form input:focus, select:focus{
     outline: 2.5px solid var(--primary-color);
+}
+option:hover{
+    background-color: var(--primary-color);
+    color: red;
 }

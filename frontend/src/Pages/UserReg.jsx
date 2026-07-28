@@ -3,25 +3,24 @@ import Logo from "../assets/logo.png";
 import bgImage from "../assets/regimage.png";
 import {
   Button,
-  Description,
-  FieldError,
-  Form,
-  Input,
-  Label,
-  InputGroup,
-  TextField,
-  Tag,
-  TagGroup,
-  Calendar, DateField, Checkbox, DatePicker,
-    ListBox, Select,
-    TextArea
 } from "@heroui/react";
 import { Eye, EyeSlash } from "@gravity-ui/icons";
+import { useForm } from "react-hook-form"
 import "./UserReg.css";
 
 function UserReg() {
+
   const [isVisible, setIsVisible] = useState(false);
   const [isVisible2, setIsVisible2] = useState(false);
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm()
+
+  const onSubmit = (data) => console.log(data)
+
   return (
     <>
       <div
@@ -405,44 +404,77 @@ function UserReg() {
             Fill in your details below to become a part of our life-saving
             community.
           </p>
-          <Form className="flex flex-col gap-4 ">
+          <form className="flex flex-col gap-4" method="POST" onSubmit={handleSubmit(onSubmit)}>
             <div className="lg:grid lg:grid-cols-1">
-              <TextField isRequired name="fullname" type="text">
-                <Label>Full Name</Label>
-                <Input placeholder="Full Nmae" />
-                <FieldError />
-              </TextField>
+              <label htmlFor="fullname">Full Name <span className="text-red-500">*</span></label>
+             <input type="text" placeholder="Enter your Full name" id="fullname" {...register("fullname", { required: true })} />
+             {errors.fullname && <small className="text-red-400 my-1">This field is required</small>}
             </div>
-            <div className="lg:grid lg:grid-cols-2 gap-2">
+            <div className="lg:grid lg:grid-cols-2 gap-4">
+              <div>
+                <label htmlFor="email">Email <span className="text-red-500">*</span></label>
+                <input type="text" placeholder="Enter your email" id="email" {...register("email", { required: true })} />
+                {errors.email && <small className="text-red-400 my-1">This field is required</small>}
+              </div>
+              <div className="mt-4">
+                <label htmlFor="phone">Mobile No. <span className="text-red-500">*</span></label>
+                <input type="text" placeholder="Enter your mobile no." id="phone" {...register("phone", { required: true })} />
+                {errors.phone && <small className="text-red-400 my-1">This field is required</small>}
+              </div>
+            </div>
+            <div className="lg:grid lg:grid-cols-2 gap-4">
+              <div>
+                <label htmlFor="password">Password <span className="text-red-500">*</span></label>
+                <input type="text" placeholder="Enter your password" id="password" {...register("password", { required: true })} />
+                {errors.password && <small className="text-red-400 my-1">This field is required</small>}
+              </div>
+              <div className="mt-4">
+                <label htmlFor="Cpassword">Confirm Password <span className="text-red-500">*</span></label>
+                <input type="text" placeholder="Enter your confirm password" id="Cpassword" {...register("Cpassword", { required: true })} />
+                {errors.Cpassword && <small className="text-red-400 my-1">This field is required</small>}
+              </div>
+            </div>
+            <div className="lg:grid lg:grid-cols-2 gap-4">
+              <div>
+                <label htmlFor="gender">Gender <span className="text-red-500">*</span></label>
+                <select id="gender" {...register("gender",{required: true})}>
+                  <option value="">Select</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                  <option value="other">Other</option>
+                </select>
+                {errors.gender && <small className="text-red-400 my-1">This field is required</small>}
+              </div>
+              <div className="mt-4">
+                <label htmlFor="Cpassword">Confirm Password <span className="text-red-500">*</span></label>
+                <input type="text" placeholder="Enter your confirm password" id="Cpassword" {...register("Cpassword", { required: true })} />
+                {errors.Cpassword && <small className="text-red-400 my-1">This field is required</small>}
+              </div>
+            </div>
+            {/* <div className="lg:grid lg:grid-cols-1">
+              <TextField isRequired type="text">
+                <Label>Full Name</Label>
+                <Input placeholder="Full Nmae" {...register("fullname", {required : true})} />
+                {errors.fullname && <small className="text-red-400">This field is required</small>}
+              </TextField>
+            </div> */}
+            {/* <div className="lg:grid lg:grid-cols-2 gap-2">
               <TextField
                 isRequired
-                name="email"
-                type="email"
-                validate={(value) => {
-                  if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(value)) {
-                    return "Please enter a valid email address";
-                  }
-                  return null;
-                }}
+                type="text"
               >
                 <Label>Mobile No.</Label>
-                <Input placeholder="+91 XXXXXXXXXX" />
-                <FieldError />
+                <Input placeholder="+91 XXXXXXXXXX" {...register("mobile", {required : true})} />
+                {errors.mobile && <small className="text-red-400">This field is required</small>}         
               </TextField>
               <TextField
                 isRequired
-                name="phone"
-                type="text"
-                validate={(value) => {
-                  if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(value)) {
-                    return "Please enter a valid email address";
-                  }
-                  return null;
-                }}
+                type="email"
+                name="email"
               >
                 <Label>Email</Label>
-                <Input placeholder="john@example.com" />
-                <FieldError />
+                <Input placeholder="john@example.com"  {...register("email", {required : true})}/>
+                {errors.email && <small className="text-red-400">This field is required</small>}         
               </TextField>
             </div>
             <div className="lg:grid lg:grid-cols-2 gap-2">
@@ -609,17 +641,17 @@ function UserReg() {
                     placeholder="Address....."
                 />
             </div>
-             <Checkbox name="basic-terms">
-                <Checkbox.Content>
-                    <Checkbox.Control>
-                    <Checkbox.Indicator />
-                    </Checkbox.Control>
-                    Accept terms and conditions
-                </Checkbox.Content>
-                </Checkbox>
+            <Checkbox name="basic-terms">
+              <Checkbox.Content>
+                  <Checkbox.Control>
+                  <Checkbox.Indicator />
+                  </Checkbox.Control>
+                  Accept terms and conditions
+              </Checkbox.Content>
+            </Checkbox> */}
               <Button type="submit" className="w-full bg-[var(--primary-color)] py-6 font-bold text-md">Create Account</Button>
               <p className="text-center">Already have an account? <a href="" className="text-[var(--primary-color)]">sign in</a></p>
-          </Form>
+          </form>
         </div>
       </div>
     </>
