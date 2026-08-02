@@ -6,16 +6,23 @@ form label{
     font-size: 1rem;
     padding: 0.5rem 0;
 }
-form input, select{
+form input, select, textarea{
     width: 100%;
     background-color: var(--bg-color);
     padding: 5px;
     border-radius: 10px;
     color: var(--text-color);
-    /* border: 0.2px solid var(--primary-color); */
 }
-form input:focus, select:focus{
+form input:focus, select:focus, textarea:focus{
     outline: 2.5px solid var(--primary-color);
+}
+input[type="checkbox"]{
+    width: 2rem;
+    height: 1rem;
+    background-color: var(--primary-color);
+}
+input[type="checkbox"]:focus{
+    outline: none;
 }
 option:hover{
     background-color: var(--primary-color);

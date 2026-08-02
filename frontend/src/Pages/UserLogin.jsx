@@ -1,15 +1,12 @@
 import React, { useState } from "react";
 import Logo from "../assets/logo.png";
 import bgImage from "../assets/regimage.png";
-import {
-  Button,
-} from "@heroui/react";
+import { Button } from "@heroui/react";
 import { Eye, EyeSlash } from "@gravity-ui/icons";
-import { useForm } from "react-hook-form"
+import { useForm } from "react-hook-form";
 import "./UserReg.css";
 
-function UserReg() {
-
+function UserLogin() {
   const [isVisible, setIsVisible] = useState(false);
   const [isVisible2, setIsVisible2] = useState(false);
   const {
@@ -17,7 +14,7 @@ function UserReg() {
     handleSubmit,
     watch,
     formState: { errors },
-  } = useForm()
+  } = useForm();
 
   const onSubmit = (data) => console.log(data);
 
@@ -26,13 +23,13 @@ function UserReg() {
   const minDate = new Date(
     today.getFullYear() - 65,
     today.getMonth(),
-    today.getDate()
+    today.getDate(),
   );
 
   const maxDate = new Date(
     today.getFullYear() - 18,
     today.getMonth(),
-    today.getDate()
+    today.getDate(),
   );
 
   return (
@@ -48,14 +45,13 @@ function UserReg() {
             <h1 className="customFont text-xl">Global Blood Donor Alliance</h1>
           </div>
           <h1 className="customFont text-4xl mt-15">
-            Join the{" "}
-            <span className="text-[var(--primary-color)]">
-              Global Blood Donor Alliance
-            </span>
+            Welcome &nbsp;
+            <span className="text-[var(--primary-color)]">Back!</span>
           </h1>
           <p className="my-4">
-            Create your account to donate blood, request blood, and connect with
-            a trusted network of donors, hospitals, and blood banks.
+            Sign in to your Global Blood Donor Alliance account to manage
+            donations, request blood, and connect with verified donors,
+            hospitals, and blood banks.
           </p>
           <div className="m-4">
             <div className="flex my-2 p-4 rounded-xl bg-[var(--bg-box-color)]/20 backdrop-blur-3xl">
@@ -86,41 +82,18 @@ function UserReg() {
                 </g>
               </svg>
               <span>
-                <h1 className="customFont">Become a Blood Donor</h1>
+                <h1 className="customFont">Manage Your Donor Profile</h1>
                 <p className="text-gray-400">
-                  Help save lives by donating blood to patients in need.
+                  Update your personal information, blood group, and availability.
                 </p>
               </span>
             </div>
             <div className="flex my-2 p-4 rounded-xl bg-[var(--bg-box-color)]/20 backdrop-blur-3xl">
-              <svg
-                viewBox="0 0 24 24"
-                className="mr-4"
-                width="1.5rem"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                <g
-                  id="SVGRepo_tracerCarrier"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                ></g>
-                <g id="SVGRepo_iconCarrier">
-                  {" "}
-                  <path
-                    d="M15.7955 15.8111L21 21M18 10.5C18 14.6421 14.6421 18 10.5 18C6.35786 18 3 14.6421 3 10.5C3 6.35786 6.35786 3 10.5 3C14.6421 3 18 6.35786 18 10.5Z"
-                    stroke="#F53A3F"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  ></path>{" "}
-                </g>
-              </svg>
+              <svg viewBox="-1.5 0 15 15"  className="mr-4 w-[1.5rem]" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>drop [#74]</title> <desc>Created with Sketch.</desc> <defs> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Dribbble-Light-Preview" transform="translate(-224.000000, -7882.000000)" fill="#F53A3F"> <g id="icons" transform="translate(56.000000, 160.000000)"> <path d="M180,7731 C180,7734.314 177.314,7737 174,7737 C170.686,7737 168,7734.314 168,7731 C168,7727.686 172.5,7722 174,7722 C175.5,7722 180,7727.686 180,7731" id="drop-[#74]"> </path> </g> </g> </g> </g></svg>
               <span>
-                <h1 className="customFont">Find Blood Easily</h1>
+                <h1 className="customFont">Track Your Donations</h1>
                 <p className="text-gray-400">
-                  Search verified donors, hospitals, and blood banks near you.
+                  View your donation history and upcoming donation eligibility.
                 </p>
               </span>
             </div>
@@ -172,39 +145,11 @@ function UserReg() {
               </span>
             </div>
             <div className="flex my-2 p-4 rounded-xl bg-[var(--bg-box-color)]/20 backdrop-blur-3xl">
-              <svg
-                fill="#F53A3F"
-                viewBox="0 0 35 35"
-                className="mr-4"
-                width="1.5rem"
-                data-name="Layer 2"
-                id="Layer_2"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                <g
-                  id="SVGRepo_tracerCarrier"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                ></g>
-                <g id="SVGRepo_iconCarrier">
-                  <path d="M17.5,34.44A3.07,3.07,0,0,1,15.89,34L9.82,30.45A14.79,14.79,0,0,1,2.25,17.7V8A3.2,3.2,0,0,1,4.34,5L16.4.57a3.2,3.2,0,0,1,2.2,0L30.66,5a3.2,3.2,0,0,1,2.09,3V17.7a14.79,14.79,0,0,1-7.57,12.75L19.11,34A3.07,3.07,0,0,1,17.5,34.44Zm0-31.56a.67.67,0,0,0-.24,0L5.2,7.33A.69.69,0,0,0,4.75,8V17.7a12.3,12.3,0,0,0,6.33,10.59l6.07,3.56a.73.73,0,0,0,.7,0l6.07-3.56h0A12.3,12.3,0,0,0,30.25,17.7V8a.69.69,0,0,0-.45-.65L17.74,2.92A.67.67,0,0,0,17.5,2.88Z"></path>
-                  <path d="M16.4,22.35a1.3,1.3,0,0,1-.81-.29l-4.27-3.6a1.25,1.25,0,0,1,1.61-1.92l3.35,2.82L22,13.06a1.25,1.25,0,0,1,1.86,1.68l-6.48,7.2A1.27,1.27,0,0,1,16.4,22.35Z"></path>
-                </g>
-              </svg>
-              <span>
-                <h1 className="customFont">Secure & Verified</h1>
-                <p className="text-gray-400">
-                  Your information is protected with industry-standard security.
-                </p>
-              </span>
-            </div>
-            <div className="flex my-2 p-4 rounded-xl bg-[var(--bg-box-color)]/20 backdrop-blur-3xl">
-              <svg
+             <svg
                 viewBox="0 0 24 24"
-                fill="none"
                 className="mr-4"
                 width="1.5rem"
+                fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -216,27 +161,27 @@ function UserReg() {
                 <g id="SVGRepo_iconCarrier">
                   {" "}
                   <path
-                    d="M22 12C22 13.3132 21.7413 14.6136 21.2388 15.8268C20.7362 17.0401 19.9997 18.1425 19.0711 19.0711C18.1425 19.9997 17.0401 20.7362 15.8268 21.2388C14.6136 21.7413 13.3132 22 12 22C10.6868 22 9.38642 21.7413 8.17317 21.2388C6.95991 20.7362 5.85752 19.9997 4.92893 19.0711C4.00035 18.1425 3.26375 17.0401 2.7612 15.8268C2.25866 14.6136 2 13.3132 2 12C2 10.6868 2.25866 9.38642 2.76121 8.17316C3.26375 6.95991 4.00035 5.85752 4.92893 4.92893C5.85752 4.00035 6.95991 3.26375 8.17317 2.7612C9.38642 2.25866 10.6868 2 12 2C13.3132 2 14.6136 2.25866 15.8268 2.76121C17.0401 3.26375 18.1425 4.00035 19.0711 4.92893C19.9997 5.85752 20.7362 6.95991 21.2388 8.17317C21.7413 9.38642 22 10.6868 22 12L22 12Z"
+                    d="M15.7955 15.8111L21 21M18 10.5C18 14.6421 14.6421 18 10.5 18C6.35786 18 3 14.6421 3 10.5C3 6.35786 6.35786 3 10.5 3C14.6421 3 18 6.35786 18 10.5Z"
                     stroke="#F53A3F"
-                    stroke-width="1.5"
-                  ></path>{" "}
-                  <path
-                    d="M16 12C16 13.3132 15.8965 14.6136 15.6955 15.8268C15.4945 17.0401 15.1999 18.1425 14.8284 19.0711C14.457 19.9997 14.016 20.7362 13.5307 21.2388C13.0454 21.7413 12.5253 22 12 22C11.4747 22 10.9546 21.7413 10.4693 21.2388C9.98396 20.7362 9.54301 19.9997 9.17157 19.0711C8.80014 18.1425 8.5055 17.0401 8.30448 15.8268C8.10346 14.6136 8 13.3132 8 12C8 10.6868 8.10346 9.38642 8.30448 8.17316C8.5055 6.95991 8.80014 5.85752 9.17157 4.92893C9.54301 4.00035 9.98396 3.26375 10.4693 2.7612C10.9546 2.25866 11.4747 2 12 2C12.5253 2 13.0454 2.25866 13.5307 2.76121C14.016 3.26375 14.457 4.00035 14.8284 4.92893C15.1999 5.85752 15.4945 6.95991 15.6955 8.17317C15.8965 9.38642 16 10.6868 16 12L16 12Z"
-                    stroke="#F53A3F"
-                    stroke-width="1.5"
-                  ></path>{" "}
-                  <path
-                    d="M2 12H22"
-                    stroke="#F53A3F"
-                    stroke-width="1.5"
+                    stroke-width="2"
                     stroke-linecap="round"
+                    stroke-linejoin="round"
                   ></path>{" "}
                 </g>
               </svg>
               <span>
-                <h1 className="customFont">Join a Global Community</h1>
+                <h1 className="customFont">Find Donors & Blood Banks</h1>
                 <p className="text-gray-400">
-                  Be part of a growing network committed to saving lives.
+                  Search verified donors, hospitals, and blood banks anytime.
+                </p>
+              </span>
+            </div>
+            <div className="flex my-2 p-4 rounded-xl bg-[var(--bg-box-color)]/20 backdrop-blur-3xl">
+              <svg viewBox="0 0 16 16" className="mr-4 w-[1.5rem]" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M4 6V4C4 1.79086 5.79086 0 8 0C10.2091 0 12 1.79086 12 4V6H14V16H2V6H4ZM6 4C6 2.89543 6.89543 2 8 2C9.10457 2 10 2.89543 10 4V6H6V4ZM7 13V9H9V13H7Z" fill="#F53A3F"></path> </g></svg>
+              <span>
+                <h1 className="customFont">Secure Access</h1>
+                <p className="text-gray-400">
+                  Your account is protected with secure authentication and encrypted data.
                 </p>
               </span>
             </div>
@@ -409,143 +354,79 @@ function UserReg() {
             </div>
           </div>
         </div>
-        <div className="form lg:w-[60%] relative z-10 p-8 lg:p-20 my-20 m-2 rounded-xl lg:m-20 bg-[var(--bg-box-color)]">
+        <div className="form lg:w-[60%] h-[40rem] relative z-10 p-8 lg:p-20 my-20 m-2 rounded-xl lg:m-20 bg-[var(--bg-box-color)]">
           <h1 className="customFont text-3xl lg:text-4xl ">
             <img src={Logo} alt="Logo" className="w-15 mr-4 my-4 lg:hidden" />
-            Create Your Account
+            Sign In to Your Account
           </h1>
           <p className="my-4">
-            Fill in your details below to become a part of our life-saving
-            community.
+            Enter your credentials to access your dashboard.
           </p>
-          <form className="flex flex-col gap-4" method="POST" onSubmit={handleSubmit(onSubmit)}>
+          <form
+            className="flex flex-col gap-4"
+            method="POST"
+            onSubmit={handleSubmit(onSubmit)}
+          >
             <div className="lg:grid lg:grid-cols-1">
-              <label htmlFor="fullname">Full Name <span className="text-red-500">*</span></label>
-             <input type="text" placeholder="Enter your Full name" id="fullname" {...register("fullname", { required: true })} />
-             {errors.fullname && <small className="text-red-400 my-1">This field is required</small>}
-            </div>
-            <div className="lg:grid lg:grid-cols-2 gap-4">
               <div>
-                <label htmlFor="email">Email <span className="text-red-500">*</span></label>
-                <input type="text" placeholder="Enter your email" id="email" {...register("email", { required: true })} />
-                {errors.email && <small className="text-red-400 my-1">This field is required</small>}
-              </div>
-              <div className="mt-4 md:mt-0">
-                <label htmlFor="phone">Mobile No. <span className="text-red-500">*</span></label>
-                <input type="text" placeholder="Enter your mobile no." id="phone" {...register("phone", { required: "This field is required",pattern: {
-                  value: /^[6-9]\d{9}$/,
-                  message: "Please enter a valid 10-digit mobile number",
-                }})} />
-                {errors.phone && <small className="text-red-400 my-1">{errors.phone.message}</small>}
-              </div>
-            </div>
-            <div className="lg:grid lg:grid-cols-2 gap-4">
-              <div>
-                <label htmlFor="password">Password <span className="text-red-500">*</span></label>
-                <input type="Password" placeholder="Enter your password" id="password" {...register("password", { required: true })} />
-                {errors.password && <small className="text-red-400 my-1">This field is required</small>}
-              </div>
-              <div className="mt-4 md:mt-0">
-                <label htmlFor="Cpassword">Confirm Password <span className="text-red-500">*</span></label>
-                <input type="Password" placeholder="Enter your confirm password" id="Cpassword" {...register("Cpassword", { required: true })} />
-                {errors.Cpassword && <small className="text-red-400 my-1">This field is required</small>}
+                <label htmlFor="email-or-mobile">
+                  Email or Mobile No. <span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="text"
+                  placeholder="Enter your email or mobile No."
+                  id="email-or-mobile"
+                  {...register("emailOrMobile", { required: "This field is required"})}
+                />
+                {errors.emailOrMobile && (
+                  <small className="text-red-400 my-1">
+                    {errors.emailOrMobile.message}
+                  </small>
+                )}
               </div>
             </div>
-            <div className="lg:grid lg:grid-cols-2 gap-4">
-              <div>
-                <label htmlFor="gender">Gender <span className="text-red-500">*</span></label>
-                <select id="gender" {...register("gender",{required: true})}>
-                  <option value="">Select</option>
-                  <option value="male">Male</option>
-                  <option value="female">Female</option>
-                  <option value="other">Other</option>
-                </select>
-                {errors.gender && <small className="text-red-400 my-1">This field is required</small>}
-              </div>
-              <div className="mt-4 md:mt-0">
-                <label htmlFor="dob">Date of Birth<span className="text-red-500">*</span></label>
-                <input type="date" id="dob" {...register("dob", { required: 'This field is required', validate: (value) => {
-                  const dob = new Date(value);
-                  if (dob < minDate) {
-                    return "Age must not be more than 65 years";
-                  }
-                  if (dob > maxDate) {
-                    return "Age must be at least 18 years";
-                  }
-                  return true;
-                } })} />
-                {errors.dob && <small className="text-red-400 my-1">{errors.dob.message}</small>}
-              </div>
-            </div>
-            <div className="lg:grid lg:grid-cols-2 gap-4">
-              <div>
-                <label htmlFor="blood-grp">Blood Group <span className="text-red-500">*</span></label>
-                <select id="blood-grp" {...register("bloodGroup",{required: true})}>
-                  <option value="">Select</option>
-                  <option value="a+">A+</option>
-                  <option value="a-">A-</option>
-                  <option value="b+">B+</option>
-                  <option value="b-">B-</option>
-                  <option value="ab+">AB+</option>
-                  <option value="ab-">AB-</option>
-                  <option value="o+">O+</option>
-                  <option value="o-">O-</option>
-                </select>
-                {errors.bloodGroup && <small className="text-red-400 my-1">This field is required</small>}
-              </div>
-              <div className="mt-4 md:mt-0">
-                <label htmlFor="weight">Weight (Kg)<span className="text-red-500">*</span></label>
-                <input type="number" id="weight" {...register("weight", { required: 'This field is required', min: {value: 45, message: "Weight must be at least 45Kg"} })} />
-                {errors.weight && <small className="text-red-400 my-1">{errors.weight.message}</small>}
-              </div>
-            </div>
+            
             <div className="lg:grid lg:grid-cols-1">
-              <label htmlFor="last-donation">Last Blood Donation Date <span className="text-gray-400">(optional)</span></label>
-             <input type="date" placeholder="Enter your Full name" id="last-donation" {...register("lastDonation")} />
-            </div>
-            <div className="lg:grid lg:grid-cols-3 gap-4">
               <div>
-                <label htmlFor="city">City <span className="text-red-500">*</span></label>
-                <input type="text" placeholder="Enter your city" id="city" {...register("city", { required: true })} />
-                {errors.city && <small className="text-red-400 my-1">This field is required</small>}
-              </div>
-              <div className="mt-4 md:mt-0">
-                <label htmlFor="state">State<span className="text-red-500">*</span></label>
-                <input type="text" placeholder="Enter your state" id="state" {...register("state", { required: true })} />
-                {errors.state && <small className="text-red-400 my-1">This field is required</small>}
-              </div>
-              <div className="mt-4 md:mt-0">
-                <label htmlFor="pincode">Pincode <span className="text-red-500">*</span></label>
-                <input type="text" placeholder="Enter your Pincode" id="pincode" {...register("pincode", { required: "This field is required", pattern: {
-                  value: /^[1-9][0-9]{5}$/,
-                  message: "Please enter a valid 6-digit pincode",
-                }, })} />
-                {errors.pincode && <small className="text-red-400 my-1">{errors.pincode.message}</small>}
+                <label htmlFor="password">
+                  Password <span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="text"
+                  placeholder="Enter your password"
+                  id="password"
+                  {...register("password", { required: true })}
+                />
+                {errors.password && (
+                  <small className="text-red-400 my-1">
+                    This field is required
+                  </small>
+                )}
               </div>
             </div>
-            <div className="lg:grid lg:grid-cols-1">
-              <label htmlFor="address">Complete Address <span className="text-red-500">*</span></label>
-              <textarea id="address" {...register("address", { required: true })}></textarea>
-              {errors.address && <small className="text-red-400 my-1">This field is required</small>}
-            </div>
+            
             <div>
               <label className="flex items-center">
                 <input
                   type="checkbox"
-                  {...register("terms", {
-                    required: "You must accept the terms and conditions",
-                  })}
+                  {...register("rememberMe")}
                 />
-                I accept the &nbsp;<a href="" className="text-red-500 underline"> Terms & Conditions </a> &nbsp; and &nbsp; <a href="" className="text-red-500 underline"> Privacy Policy</a>.
+               Remember Me
               </label>
-              {errors.terms && (
-                <small className="text-red-400">
-                  {errors.terms.message}
-                </small>
-              )}
             </div>
-            <Button type="submit" className="w-full bg-[var(--primary-color)] py-6 font-bold text-md">Create Account</Button>
-            <p className="text-center">Already have an account? <a href="" className="text-[var(--primary-color)]">sign in</a></p>
+            <Button
+              type="submit"
+              className="w-full bg-[var(--primary-color)] py-6 font-bold text-md"
+            >
+              Sign In
+            </Button>
+            <a href="" className="text-center text-red-500">Forgot Password?</a>
+            <p className="text-center">
+              Don't have an account? &nbsp;
+              <a href="" className="text-[var(--primary-color)]">
+                Create Account
+              </a>
+            </p>
           </form>
         </div>
       </div>
@@ -553,4 +434,4 @@ function UserReg() {
   );
 }
 
-export default UserReg;
+export default UserLogin;

@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 import logo from "../assets/logo.png";
 import {Button} from "@heroui/react";
 
@@ -6,7 +7,7 @@ function Header() {
   
   return (
     <>
-      <nav className="relative z-10 backdrop-blur-xs sticky top-0 after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-white/10">
+      <nav className="relative z-10 backdrop-blur-md bg-[var(--bg-box-color)]/50 sticky top-0 after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-white/10">
         <div className="mx-auto max-w-7xl px-2 lg:px-6 lg:px-8">
           <div className="relative flex h-16 items-center justify-between">
             <div className="absolute inset-y-0 left-0 flex items-center lg:hidden">
@@ -92,8 +93,8 @@ function Header() {
             </div>
             {/* Buttons */}
             <div className="hidden lg:ml-6 lg:block absolute inset-y-0 right-0 flex items-center pr-2 lg:static lg:inset-auto lg:ml-6 lg:pr-0">
-              <Button variant="ghost" className="text-[var(--text-color)] mx-2">Login</Button>
-              <Button variant="outline" className="text-[var(--text-color)] mx-2">Register</Button>
+              <Button variant="ghost" className="text-[var(--text-color)] mx-2"><Link to="/user-login">Login</Link></Button>
+              <Button variant="outline" className="text-[var(--text-color)] mx-2"><Link to="/user-registration">Register</Link></Button>
               <Button variant="danger" className="bg-[var(--primary-color)] mx-2">Become a Donor</Button>
             </div>
             {/* User Profile */}
@@ -135,14 +136,14 @@ function Header() {
                 <el-menu
                   anchor="bottom end"
                   popover
-                  className="w-48 origin-top-right rounded-md bg-gray-800 py-1 outline -outline-offset-1 outline-white/10 transition transition-discrete [--anchor-gap:--spacing(2)] data-closed:scale-95 data-closed:transform data-closed:opacity-0 data-enter:duration-100 data-enter:ease-out data-leave:duration-75 data-leave:ease-in"
+                  className="w-48 origin-top-right rounded-md bg-[var(--bg-box-color)] py-1 outline -outline-offset-1 outline-white/10 transition transition-discrete [--anchor-gap:--spacing(2)] data-closed:scale-95 data-closed:transform data-closed:opacity-0 data-enter:duration-100 data-enter:ease-out data-leave:duration-75 data-leave:ease-in"
                 >
-                  <a
-                    href="#"
+                  <Link
+                    to="/manage-profile"
                     className="block px-4 py-2 text-sm text-gray-300 focus:bg-white/5 focus:outline-hidden"
                   >
                     Your profile
-                  </a>
+                  </Link>
                   <a
                     href="#"
                     className="block px-4 py-2 text-sm text-gray-300 focus:bg-white/5 focus:outline-hidden"

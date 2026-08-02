@@ -9,13 +9,14 @@ body{
     scroll-behavior: smooth;
 }
 *{
+    transition:  0.5s ease;
     box-sizing: border-box;
 }
 :root{
     --primary-color: #F53A3F;
     --bg-color: #120B0B;
-    --bg-box-color: #1E1514;
-    /* --bg-box-color: #191113; */
+    --bg-box-color: #291c1a;
+    /* --bg-box-color: #1E1514; */
     --text-color: white;
 }
 ::selection{
