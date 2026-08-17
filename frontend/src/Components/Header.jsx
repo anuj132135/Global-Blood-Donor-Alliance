@@ -5,6 +5,7 @@ import { Button } from "@heroui/react";
 import ThemeSwitcher from "./ThemeSwitcher";
 import api from "../api/api";
 import { useSelector } from "react-redux";
+import BloodRequest from "./BloodRequest";
 
 function Header() {
   const user = useSelector((state) => state.user.value);
@@ -110,7 +111,7 @@ function Header() {
                     Find Donors
                   </NavLink>
                   <NavLink
-                    to="/about"
+                    to="/search-hospital"
                     className={({ isActive }) =>
                       isActive
                         ? "rounded-md border-b-1 border-[var(--primary-color)] px-3 py-2 text-sm font-medium text-white"
@@ -143,7 +144,7 @@ function Header() {
               </div>
             </div>
             {/* Buttons */}
-            <div className="hidden lg:ml-6 lg:block absolute inset-y-0 right-0 flex items-center pr-2 lg:static lg:inset-auto lg:ml-6 lg:pr-0">
+            <div className="hidden lg:ml-6 lg:flex absolute inset-y-0 right-0 pr-2 lg:static lg:inset-auto lg:ml-6 lg:pr-0 ">
               {user == null ? (
                 <>
                   <Button
@@ -156,12 +157,12 @@ function Header() {
                     variant="outline"
                     className="text-[var(--text-color)] mx-2"
                   >
-                    <Link to="/user-registration">Register</Link>
+                    <Link to="/registration">Register</Link>
                   </Button>
                 </>
-              ) : null}
+              ) : <BloodRequest className="bg-[var(--bg-color)] border border-1 mx-2"/>}
+              
               <Button
-                variant="danger"
                 className="bg-[var(--primary-color)] mx-2"
               >
                 Become a Donor
@@ -267,7 +268,7 @@ function Header() {
               Find Donors
             </NavLink>
             <NavLink
-              to=""
+              to="/search-hospital"
               className={({ isActive }) =>
                 isActive
                   ? "block rounded-md border-b-2 border-[var(--primary-color)] px-3 py-2 text-base font-medium text-white"
@@ -296,25 +297,32 @@ function Header() {
             >
               Contact Us
             </NavLink>
+            {user == null ?
+              <>
+                <Button
+                  variant="ghost"
+                  className="text-[var(--text-color)] my-2 hover:text-black w-full"
+                >
+                  <Link to="/user-login">Login</Link>
+                </Button>
+                <Button
+                  variant="outline"
+                  className="text-[var(--text-color)] my-2 w-full"
+                >
+                  <Link to="/registration">Register</Link>
+                </Button> 
+              </> : 
+              <>
+                <BloodRequest className="w-full my-2 bg-[var(--bg-color)] border"/>
+              </>
+            }
+                <Button
+                variant="danger"
+                className="bg-[var(--primary-color)] my-2 w-full"
+                >
+                  <Link to="/user-login">Become a Donor</Link>
+                </Button>
 
-            <Button
-              variant="ghost"
-              className="text-[var(--text-color)] mx-2 my-2 hover:text-black w-full"
-            >
-              <Link to="/user-login">Login</Link>
-            </Button>
-            <Button
-              variant="outline"
-              className="text-[var(--text-color)] mx-2 my-2 w-full"
-            >
-              <Link to="/user-registration">Register</Link>
-            </Button>
-            <Button
-              variant="danger"
-              className="bg-[var(--primary-color)] mx-2 my-2 w-full"
-            >
-              <Link to="/user-login">Become a Donor</Link>
-            </Button>
           </div>
         </el-disclosure>
       </nav>

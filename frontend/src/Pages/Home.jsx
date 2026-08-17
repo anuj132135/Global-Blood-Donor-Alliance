@@ -21,6 +21,8 @@ import { useDispatch, useSelector } from "react-redux";
 import {setUser} from "../Authentication/authSlice"
 import {setLoader} from "../Authentication/loaderSlice"
 import { HomeSkeleton } from "../Skeleton/HomeSkeleton";
+import BloodRequest from "../Components/BloodRequest";
+import { Droplet, DropletOffIcon } from "lucide-react";
 
 function Home() {
 
@@ -66,76 +68,9 @@ function Home() {
             Donor Alliance and connect blood donors, recipients, hospitals, and
             blood banks on one trusted platform.
           </p>
-          <Button variant="danger" className="my-8 p-6">
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-              <g
-                id="SVGRepo_tracerCarrier"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              ></g>
-              <g id="SVGRepo_iconCarrier">
-                {" "}
-                <path
-                  d="M16.6725 16.6412L21 21M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z"
-                  stroke="#ffffff"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                ></path>{" "}
-              </g>
-            </svg>
-            Request Blood
-          </Button>
+          <BloodRequest className="bg-red-500 m-2 mt-8 md:m-4 p-6 "/>
           <Button className="m-2 mb-8 md:m-4 p-6 bg-transparent border">
-            <svg
-              viewBox="-1.5 0 15 15"
-              version="1.1"
-              xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
-              fill="#000000"
-            >
-              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-              <g
-                id="SVGRepo_tracerCarrier"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              ></g>
-              <g id="SVGRepo_iconCarrier">
-                {" "}
-                <title>drop [#74]</title> <desc>Created with Sketch.</desc>{" "}
-                <defs> </defs>{" "}
-                <g
-                  id="Page-1"
-                  stroke="none"
-                  stroke-width="1"
-                  fill="none"
-                  fill-rule="evenodd"
-                >
-                  {" "}
-                  <g
-                    id="Dribbble-Light-Preview"
-                    transform="translate(-224.000000, -7882.000000)"
-                    fill="#ffffff"
-                  >
-                    {" "}
-                    <g id="icons" transform="translate(56.000000, 160.000000)">
-                      {" "}
-                      <path
-                        d="M180,7731 C180,7734.314 177.314,7737 174,7737 C170.686,7737 168,7734.314 168,7731 C168,7727.686 172.5,7722 174,7722 C175.5,7722 180,7727.686 180,7731"
-                        id="drop-[#74]"
-                      >
-                        {" "}
-                      </path>{" "}
-                    </g>{" "}
-                  </g>{" "}
-                </g>{" "}
-              </g>
-            </svg>
+            <Droplet/>
             Become a Donor
           </Button>
         </div>

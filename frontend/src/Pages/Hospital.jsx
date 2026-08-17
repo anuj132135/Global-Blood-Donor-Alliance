@@ -2,149 +2,72 @@ import React from 'react'
 import Header from "../Components/Header"
 import Footer from "../Components/Footer"
 import {Button, Chip, Modal, Avatar, ToggleButton } from "@heroui/react"
-import { Siren, MapPin, ShieldCheck, CirclePlus, PhoneCall, Clock, Users, Hospital, Droplet, BriefcaseMedical, DoorOpen, Search, Navigation, Phone, ExternalLink, Heart, Pin, Mail, BriefcaseMedicalIcon, CircleCheck, HeartHandshake } from 'lucide-react'
+import { Siren, MapPin, ShieldCheck, CirclePlus, PhoneCall, Clock, Users, Droplet, BriefcaseMedical, DoorOpen, Search, Navigation, Phone, ExternalLink, Heart, Pin, Mail, BriefcaseMedicalIcon, CircleCheck, HeartHandshake, BluetoothConnected, Toolbox } from 'lucide-react'
 import { CircleFill, HeartFill, LocationArrow, StarFill } from '@gravity-ui/icons'
 import { useForm } from "react-hook-form"
 import bloodBankImage from "../assets/blood-bank/bloodbank.webp"
 
-function SearchBloodBank() {
+function Hospital() {
 
-const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm()
-
-const onSubmit = (data) => console.log(data)
+  const {
+      register,
+      handleSubmit,
+      watch,
+      formState: { errors },
+    } = useForm()
+  
+  const onSubmit = (data) => console.log(data)
 
   return (
     <>
-        <Header/>
-        {/* Blood Bank Banner */}
+      <Header/>
+      <main>
+          {/* Blood Bank Banner */}
         <section className="lg:w-[80%] mx-auto px-4 py-10 lg:flex justify-center items-center" data-aos="fade-up">
             <div>
-                <Chip className='bg-green-900 text-green-100 border border-green-100 px-2'><ShieldCheck className='py-1'/>Varified Blood Banks</Chip>
+                <Chip className='bg-green-900 text-green-100 border border-green-100 px-2'><ShieldCheck className='py-1'/>Varified Hospitals</Chip>
                 <h1 className="text-4xl customFont my-4">
-                Find Blood Banks Near You
+                Find Hospitals Near You
                 </h1>
                 <p className='text-gray-400 leading-5 lg:leading-1'>
-                Find nearby blood banks, check available services, and connect with trusted blood collection centers when you need blood.
+                Find nearby hospitals, check emergency services, view contact details, and connect with hospitals for blood-related requirements.
                 </p>
             </div>
             <div className="flex mt-8 lg:my-4 lg:mx-8">
-                <Modal>
-                    <Button className="lg:mx-2 bg-[var(--primary-color)] hover:bg-red-700">
-                    <CirclePlus /> Register Blood Bank
-                    </Button>
-                    <Modal.Backdrop>
-                        <Modal.Container>
-                        <Modal.Dialog className="sm:max-w-[30rem] bg-[var(--bg-box-color)]">
-                            <Modal.CloseTrigger />
-                            <Modal.Header>
-                                <div className="flex justify-between items-center border-b-1 pb-4">
-                                    <div className="flex items-center">
-                                        <Hospital className='mr-4 p-2 w-10 h-10 rounded-xl bg-[var(--primary-color)]'/>
-                                        <span className="py-2">
-                                            <h1 className="customFont text-[var(--primary-color)]">Register Blood Bank</h1>
-                                            <p className="inline-block mx-1 text-xs text-gray-300">Join the National Blood Availability Network</p>
-                                        </span>
-                                    </div>      
-                                </div>
-                            </Modal.Header>
-                            <Modal.Body>
-                                <form onSubmit={handleSubmit(onSubmit)} style={{marginTop: "0px"}} >
-                                    <div>
-                                        <label htmlFor="bloodBankName" style={{color: 'lightGray', fontSize: '12px'}}>Blood Bank / Center Name</label>
-                                        <input type='text' id='bloodBankName' {...register("bloodBankName", { required: true })} />
-                                        {errors.bloodBankName && <span>This field is required</span>}
-                                    </div>
-
-                                    <div className='grid lg:grid-cols-2 gap-2 my-2'>
-                                        <div>
-                                            <label htmlFor="bloodBankLicence" style={{color: 'lightGray', fontSize: '12px'}}>Drug Control License No.</label>
-                                            <input type='text' id='bloodBankLicence' {...register("bloodBankLicence", { required: true })} />
-                                            {errors.bloodBankLicence && <span>This field is required</span>}
-                                        </div>
-
-                                        <div>
-                                            <label htmlFor="facilityType" style={{color: 'lightGray', fontSize: '12px'}}>Facility Type</label>
-                                            <select id="facilityType"  {...register("facilityType", { required: true })}>
-                                                <option value="private_hospital">Private Hospital</option>
-                                                <option value="government_center">Government Center</option>
-                                                <option value="red_cross_society">Red Cross Society</option>
-                                                <option value="charitable_trust">Charitable Trust</option>
-                                            </select>
-                                            {errors.facilityType && <span>This field is required</span>}
-                                        </div>
-                                    </div>
-
-                                    <div className='grid lg:grid-cols-3 gap-2 my-2'>
-                                        <div>
-                                            <label htmlFor="city" style={{color: 'lightGray', fontSize: '12px'}}>City</label>
-                                            <input type='text' id='city' {...register("city", { required: true })} />
-                                            {errors.city && <span>This field is required</span>}
-                                        </div>
-
-                                        <div>
-                                            <label htmlFor="emergency_phone" style={{color: 'lightGray', fontSize: '12px'}}>Emergency Phone</label>
-                                            <input type='text' id='emergency_phone' {...register("emergency_phone", { required: true })} />
-                                            {errors.emergency_phone && <span>This field is required</span>}
-                                        </div>
-
-                                        <div>
-                                            <label htmlFor="official_email" style={{color: 'lightGray', fontSize: '12px'}}>Official Email</label>
-                                            <input type='email' id='official_email' {...register("official_email", { required: true })} />
-                                            {errors.official_email && <span>This field is required</span>}
-                                        </div>
-                                    </div>
-
-                                    <p className='text-white flex my-4 bg-[var(--bg-color)] p-2 text-xs'><ShieldCheck className='mr-2 text-green-600'/> By registering, you commit to maintaining real-time blood stock counts on the national network.</p>
-
-                                    <input type="submit"/>
-                                </form>
-                                
-                            </Modal.Body>
-                           
-                        </Modal.Dialog>
-                        </Modal.Container>
-                    </Modal.Backdrop>
-                </Modal>
+              <Button className="lg:mx-2 bg-[var(--primary-color)] hover:bg-red-700">
+              <CirclePlus /> Register Hospital
+              </Button>
             </div>
         </section>
 
         {/* search form */}
         <section className='m-4 rounded-xl p-8 my-10 mx-auto border border-gray-500 lg:w-[80%]' data-aos="fade-up">
             <h1 className='flex font-bold'>
-                <Search className='mr-2'/> Find Blood Availability
+                <Search className='mr-2'/> Search Hospitals
             </h1>
               <form onSubmit={handleSubmit(onSubmit)} className='lg:grid grid-cols-3 gap-5'>
-                <input type='search' {...register("searchBloodBank")} placeholder='Search blood bank, city, area or pincode' className='border border-gray-500 my-4' />
-                <select {...register("bloodGroup")} className='my-4 border border-gray-500'>
-                    <option value="">All Blood Groups</option>
-                    <option value="A+">A+</option>
-                    <option value="A-">A-</option>
-                    <option value="B+">B+</option>
-                    <option value="B-">B-</option>
-                    <option value="AB+">AB+</option>
-                    <option value="AB-">AB-</option>
-                    <option value="O+">O+</option>
-                    <option value="O-">O-</option>
+                <input type='search' {...register("hospitalName")} placeholder='Search hospital' className='border border-gray-500 my-4' />
+
+                <input type='search' {...register("country")} placeholder='Country' className='border border-gray-500 my-4' />
+                <input type='search' {...register("state")} placeholder='State' className='border border-gray-500 my-4' />
+                <input type='search' {...register("City")} placeholder='City' className='border border-gray-500 my-4' />
+                <input type='search' {...register("pincode")} placeholder='Pincode' className='border border-gray-500 my-4' />
+
+                <select {...register("hosptialType")} className='my-4 border border-gray-500'>
+                    <option value="">All Hospital Type</option>
+                    <option value="government">Government</option>
+                    <option value="private">Private</option>
+                    <option value="trust">Trust</option>
+                    <option value="other">Other</option>
                 </select>
-                <select {...register("bloodGroup")} className='my-4 border border-gray-500'>
-                    <option value="">All Distances</option>
-                    <option value="5">Within 5 km</option>
-                    <option value="10">Within 10 km</option>
-                    <option value="20">Within 20 km</option>
-                    <option value="50">Within 50 km</option>
-                    <option value="100">Within 100 km</option>
-                </select>
+                
                 <ToggleButton className=" bg-transparent border w-full my-4 border-gray-500 lg:w-40">
                     <Navigation className='text-green-600 '/>
                     Use my location
                 </ToggleButton>
+
                 <div className='col-span-2 lg:grid grid-cols-subgrid gap-4'>
-                    <input type="submit" value="Search Blood Banks" className='my-4 lg:h-10 lg:font-bold lg:text-lg col-start-2 ' />
+                    <input type="submit" value="Search Hospitals" className='my-4 lg:h-10 lg:font-bold lg:text-lg col-start-2 ' />
                 </div>
                 </form>
         </section>
@@ -153,27 +76,27 @@ const onSubmit = (data) => console.log(data)
         <section className='grid lg:grid-cols-4 md:grid-cols-2 lg:w-[80%] lg:mx-auto' data-aos="fade-up">
             <div className='h-50 p-8 bg-[var(--bg-box-color)] rounded-xl m-4'>
                 <Droplet className='p-2 mb-4 w-10 rounded-xl h-10 bg-[var(--primary-color)] '/>
-                <h1 className='text-4xl customFont'>128</h1>
-                <p className='font-bold'>Registered Blood Banks</p>
-                <p className='text-sm text-gray-400'>Verified by Health Authority</p>
+                <h1 className='text-4xl customFont'>120+</h1>
+                <p className='font-bold'>Registered Hospitals</p>
+                <p className='text-sm text-gray-400'>Verified healthcare facilities</p>
             </div>
             <div className='h-50 p-8 bg-[var(--bg-box-color)] rounded-xl m-4'>
                 <BriefcaseMedical className='p-2 mb-4 w-10 rounded-xl h-10 bg-[var(--primary-color)] '/>
                 <h1 className='text-4xl customFont'>42</h1>
-                <p className='font-bold'>Nearby Blood Banks</p>
-                <p className='text-sm text-gray-400'>In your search radius</p>
+                <p className='font-bold'>Nearby Hospitals</p>
+                <p className='text-sm text-gray-400'>Available in your search area</p>
             </div>
             <div className='h-50 p-8 bg-[var(--bg-box-color)] rounded-xl m-4'>
                 <DoorOpen className='p-2 mb-4 w-10 rounded-xl h-10 bg-[var(--primary-color)] '/>
                 <h1 className='text-4xl customFont'>86</h1>
-                <p className='font-bold'>Currently Open</p>
-                <p className='text-sm text-gray-400'>Ready for immediate dispatch</p>
+                <p className='font-bold'>24/7 Emergency Hospitals</p>
+                <p className='text-sm text-gray-400'>Ready for urgent medical care</p>
             </div>
             <div className='h-50 p-8 bg-[var(--bg-box-color)] rounded-xl m-4'>
                 <DoorOpen className='p-2 mb-4 w-10 rounded-xl h-10 bg-[var(--primary-color)] '/>
                 <h1 className='text-4xl customFont'>15K+</h1>
-                <p className='font-bold'>Blood Units Available</p>
-                <p className='text-sm text-gray-400'>Across all 8 blood groups</p>
+                <p className='font-bold'>Patients Supported</p>
+                <p className='text-sm text-gray-400'>Connected with blood resources</p>
             </div>
         </section>
         
@@ -206,7 +129,7 @@ const onSubmit = (data) => console.log(data)
                     <div className="absolute top-3 left-3 right-3 flex items-center justify-between gap-2">
                         <span className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-950/90 text-emerald-400 border border-emerald-700/50 text-xs font-bold shadow-md backdrop-blur-md">
                             <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
-                            <span>Verified Blood Bank</span>
+                            <span>Verified Hospital</span>
                         </span>
 
                         <span className="px-2.5 py-1 rounded-full bg-[#120B0B]/90 text-xs font-semibold text-white border border-[#2A1B1B] backdrop-blur-md flex items-center gap-1">
@@ -218,7 +141,7 @@ const onSubmit = (data) => console.log(data)
                     {/* Bank Type Pill at Bottom Left of image */}
                     <div className="absolute bottom-3 left-3 flex items-center gap-2">
                         <span className="px-2.5 py-0.5 rounded-md bg-[#120B0B]/80 border border-[#2A1B1B] text-[11px] font-medium text-[#A8A8A8] backdrop-blur-sm">
-                        Private Facility
+                        Private
                         </span>
                         <span className="px-2 py-0.5 rounded-md bg-red-950/90 border border-red-800/60 text-[10px] font-bold text-red-400 backdrop-blur-sm uppercase tracking-wider">
                             24/7 Emergency
@@ -231,14 +154,14 @@ const onSubmit = (data) => console.log(data)
                         {/* Title & Status */}
                         <div className="flex items-start justify-between gap-2">
                             <h3 className="text-lg font-bold text-white group-hover:text-[#F53A3F] transition-colors leading-snug">
-                            City Care Regional Blood Center
+                            City Care Multispecialty Hospital
                             </h3>
                         </div>
 
                         {/* Location */}
                         <div className="flex items-center gap-1.5 text-xs text-[#A8A8A8] mt-1.5">
                             <MapPin className="w-3.5 h-3.5 text-[#F53A3F] flex-none" />
-                            <span className="truncate">14/112 Mall Road, Swaroop Nagar, Kanpur, Uttar Pradesh</span>
+                            <span className="truncate">Plot 14, Mall Road, Swaroop Nagar, Kanpur, Uttar Pradesh - 208002</span>
                         </div>
 
                         {/* Timing & Open Status */}
@@ -264,7 +187,7 @@ const onSubmit = (data) => console.log(data)
                             href='tel:+91 512 254 8920'
                             className="text-[#F53A3F] hover:underline font-semibold cursor-pointer"
                             >
-                            Call Blood Bank
+                            Call Hospital
                             </a>
                         </div>
 
@@ -326,10 +249,10 @@ const onSubmit = (data) => console.log(data)
                                         </div>
                                             <div className='mt-35 lg:mt-60 mx-4'>
                                                 <div className='flex'>
-                                                    <Chip className='bg-green-950 text-green-600 border border-green-600 m-2 font-bold'><ShieldCheck/>Varified Center </Chip>
-                                                    <Chip className='bg-gray-950 text-gray-400 border border-gray-400 m-2 font-bold'>Private Facility</Chip>
+                                                    <Chip className='bg-green-950 text-green-600 border border-green-600 m-2 font-bold'><ShieldCheck/>Varified Hospital </Chip>
+                                                    <Chip className='bg-gray-950 text-gray-400 border border-gray-400 m-2 font-bold'>Private</Chip>
                                                 </div>
-                                                <h1 className='customFont text-2xl lg:text-3xl text-[var(--text-color)]'>City Care Regional Blood Center</h1>
+                                                <h1 className='customFont text-2xl lg:text-3xl text-[var(--text-color)]'>City Care Multispecialty Hospital</h1>
                                                 
                                             </div>
                                     </Modal.Heading>
@@ -370,7 +293,7 @@ const onSubmit = (data) => console.log(data)
                                         </div>
                                     </div>
                                     <div className='mx-4 '>
-                                        <h1 className='flex text-xl text-white font-bold my-6'> <Droplet className='text-[var(--primary-color)] mr-2'/> Current Blood Stock Inventory</h1>
+                                        <h1 className='flex text-xl text-white font-bold my-6'> <Droplet className='text-[var(--primary-color)] mr-2'/>Current Blood Stock Inventory</h1>
                                         <div className='grid grid-cols-3 gap-2 my-4'>
                                             <div className='flex p-2 flex-wrap items-center justify-center border-1 rounded-lg text-green-600 bg-green-950 border-green-600'> 
                                                 <h1 className='font-bold text-xs text-[var(--text-color)]'>A+</h1>
@@ -407,35 +330,35 @@ const onSubmit = (data) => console.log(data)
                                         </div>
                                     </div>
                                     <div className='mx-4'>
-                                        <h1 className='flex text-xl text-white font-bold my-6'> <BriefcaseMedicalIcon className='text-[var(--primary-color)] mr-2'/> Available Facilities</h1>
+                                        <h1 className='flex text-xl text-white font-bold my-6'> <BriefcaseMedicalIcon className='text-[var(--primary-color)] mr-2'/> Available Services</h1>
                                         <di className="grid lg:grid-cols-2 gap-2">
                                             <div className='flex text-white bg-[var(--bg-color)] p-3 rounded-xl'>
                                                 <CircleCheck className='mr-2 p-1 text-green-500'/>
-                                                <p>Blood Collection</p>
+                                                <p> 24/7 Emergency</p>
                                             </div>
                                             <div className='flex text-white bg-[var(--bg-color)] p-3 rounded-xl'>
                                                 <CircleCheck className='mr-2 p-1 text-green-500'/>
-                                                <p>Blood Storage</p>
+                                                <p>Blood Transfusion</p>
                                             </div>
                                             <div className='flex text-white bg-[var(--bg-color)] p-3 rounded-xl'>
                                                 <CircleCheck className='mr-2 p-1 text-green-500'/>
-                                                <p>Blood Testing & Screening</p>
+                                                <p>Blood Bank</p>
                                             </div>
                                             <div className='flex text-white bg-[var(--bg-color)] p-3 rounded-xl'>
                                                 <CircleCheck className='mr-2 p-1 text-green-500'/>
-                                                <p>Component Separation (PRBC, FFP, Platelets)</p>
+                                                <p>ICU</p>
                                             </div>
                                             <div className='flex text-white bg-[var(--bg-color)] p-3 rounded-xl'>
                                                 <CircleCheck className='mr-2 p-1 text-green-500'/>
-                                                <p>24/7 Emergency Blood Supply</p>
+                                                <p>Ambulance</p>
                                             </div>
                                             <div className='flex text-white bg-[var(--bg-color)] p-3 rounded-xl'>
                                                 <CircleCheck className='mr-2 p-1 text-green-500'/>
-                                                <p>Apheresis Facility</p>
+                                                <p>Laboratory</p>
                                             </div>
                                             <div className='flex text-white bg-[var(--bg-color)] p-3 rounded-xl'>
                                                 <CircleCheck className='mr-2 p-1 text-green-500'/>
-                                                <p>Cold Chain Logistics</p>
+                                                <p>Surgery</p>
                                             </div>
                                         </di>
                                     </div>
@@ -478,7 +401,7 @@ const onSubmit = (data) => console.log(data)
                         </Modal>
                         <Modal>
                             <Button className=" bg-[var(--primary-color)] hover:bg-red-700 w-full col-span-2">
-                            <HeartHandshake /> Blood Bank Request
+                            <HeartHandshake /> Hospital Request
                             </Button>
                             <Modal.Backdrop>
                                 <Modal.Container size='lg'>
@@ -592,8 +515,7 @@ const onSubmit = (data) => console.log(data)
                                             </div>
                                             <div className='my-4'>
                                                 <label htmlFor="doctorPrescriptions" style={{color: 'lightGray', fontSize: '12px'}}>Doctor Prescriptions / Remarks (Optional)</label>
-                                                <textarea id='doctorPrescriptions' {...register("doctorPrescriptions", { required: true })}></textarea>
-                                                {errors.doctorPrescriptions && <span>This field is required</span>}
+                                                <textarea id='doctorPrescriptions' {...register("doctorPrescriptions")}></textarea>
                                             </div>
                                             <input type="submit" value="Send Blood Request"/>
                                         </form>
@@ -608,12 +530,13 @@ const onSubmit = (data) => console.log(data)
                 </div>
             </div>
             
-           
+            
         </section>
-
-        <Footer/>
+        
+      </main>
+      <Footer/>
     </>
   )
 }
 
-export default SearchBloodBank
+export default Hospital

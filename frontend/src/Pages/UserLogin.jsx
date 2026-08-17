@@ -418,7 +418,7 @@ function UserLogin() {
             <a href="" className="text-center text-red-500">Forgot Password?</a>
             <p className="text-center">
               Don't have an account? &nbsp;
-              <Link to="/user-registration" className="text-[var(--primary-color)]">
+              <Link to="/registration" className="text-[var(--primary-color)]">
                 Create Account
               </Link>
             </p>
