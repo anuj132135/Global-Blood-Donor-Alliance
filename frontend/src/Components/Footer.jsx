@@ -1,6 +1,5 @@
 import React from 'react'
 import logo from "../assets/logo.png"
-import "./Footer.css"
 
 function Footer() {
   return (
@@ -8,7 +7,7 @@ function Footer() {
         <footer className='bg-[var(--bg-box-color)] p-8 lg:flex' data-aos="fade-up">
             <div className='mx-2 my-8 md:w-[40%]'>
                 <img src={logo} className='w-20 my-8' alt="Logo" />
-                <h1 className='text-4xl my-4'>Global Blood Donor Alliance</h1>
+                <h1 className='customFont text-4xl my-4'>Global Blood Donor Alliance</h1>
                 <p>Connecting blood donors, recipients, hospitals, and blood banks through a secure platform to make blood available when it matters most.</p>
                 <div className="social-media flex my-4">
                     <a href="">

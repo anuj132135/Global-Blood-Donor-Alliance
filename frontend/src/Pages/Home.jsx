@@ -15,12 +15,44 @@ import Header from "../Components/Header";
 import Counter from "../Components/Counter";
 import Footer from "../Components/Footer";
 import "./Home.css";
+import { useNavigate } from "react-router-dom";
+import api from "../api/api";
+import { useDispatch, useSelector } from "react-redux";
+import {setUser} from "../Authentication/authSlice"
+import {setLoader} from "../Authentication/loaderSlice"
+import { HomeSkeleton } from "../Skeleton/HomeSkeleton";
 
 function Home() {
+
+  const user = useSelector((state) => state.user.value);
+  const loader = useSelector((state) => state.loader.value);
+  const dispatch = useDispatch()
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const getProfile = async () => {
+      try {
+        const response = await api.get("/profile");
+        dispatch(setUser(response.data.user));
+      } catch (error) {
+       dispatch(setUser(null));
+      }finally{
+        dispatch(setLoader(false));
+      }
+    };
+    getProfile();
+  }, [navigate]);
+  
   return (
     <>
+      {loader == true ? <HomeSkeleton/> : null}
+
+      {/* Header */}
       <Header />
-      <div className="mx-auto max-w-7xl py-10  my-10 flex flex-col lg:flex-row md:items-center md:justify-center">
+      
+      {/* Hero Section */}
+      <div className="mx-auto max-w-7xl py-10  my-10 flex flex-col lg:flex-row md:items-center md:justify-center" data-aos="fade-up">
         <div className="hero-section p-4 md:py-20 md:pr-20  lg:w-[50%] flex lg:block items-center justify-center flex-col">
           <p className="rounded-2xl border-[var(--primary-color)] border inline-block py-1 px-4 bg-red-950 text-[var(--primary-color)] font-bold">
             Global Blood Donor Alliance
@@ -57,7 +89,7 @@ function Home() {
                 ></path>{" "}
               </g>
             </svg>
-            Find Blood
+            Request Blood
           </Button>
           <Button className="m-2 mb-8 md:m-4 p-6 bg-transparent border">
             <svg
@@ -133,7 +165,9 @@ function Home() {
           </div>
         </div>
       </div>
-      <div className="counter mx-auto py-10  my-10  flex flex-col items-center justify-around md:flex-row w-[80%] bg-[var(--bg-box-color)] rounded-xl">
+
+      {/* Counter Section */}
+      <div className="counter mx-auto py-10  my-10  flex flex-col items-center justify-around md:flex-row w-[80%] bg-[var(--bg-box-color)] rounded-xl" data-aos="fade-up">
         <div className="p-4 ">
           <Counter target={250000} />
           <p className="text-center">Registered Donors</p>
@@ -151,7 +185,10 @@ function Home() {
           <p className="text-center">Lives Saved</p>
         </div>
       </div>
-      <div className="search-donors flex items-center justify-center flex-col py-20 "
+
+      {/* Find Blood Section */}
+      <div
+        className="search-donors flex items-center justify-center flex-col py-20 "
         data-aos="fade-up"
       >
         <p className="rounded-2xl border-[var(--primary-color)] border inline-block py-1 px-4 bg-red-950 text-[var(--primary-color)] font-bold">
@@ -365,7 +402,10 @@ function Home() {
           </Button>
         </form>
       </div>
-      <div className="emergency relative md:p-8 p-4 my-10 bg-linear-to-r from-[var(--primary-color)] to-[var(--bg-box-color)] rounded-2xl w-[80%] mx-auto"
+
+      {/* Emergency Response Section */}
+      <div
+        className="emergency relative md:p-8 p-4 my-10 bg-linear-to-r from-[var(--primary-color)] to-[var(--bg-box-color)] rounded-2xl w-[80%] mx-auto"
         data-aos="fade-up"
       >
         <div>
@@ -427,7 +467,10 @@ function Home() {
           </g>
         </svg>
       </div>
-      <div className="whyChoose my-10 py-10 flex justify-center items-center flex-col"
+
+      {/* Why Chooose Section */}
+      <div
+        className="whyChoose my-10 py-10 flex justify-center items-center flex-col"
         data-aos="fade-up"
       >
         <p className="rounded-2xl border-[var(--primary-color)] border inline-block py-1 px-4 bg-red-950 text-[var(--primary-color)] font-bold">
@@ -792,7 +835,10 @@ function Home() {
           </Card>
         </div>
       </div>
-      <div className="how-it-works my-10 py-10 flex justify-center items-center flex-col"
+
+      {/* How lt works */}
+      <div
+        className="how-it-works my-10 py-10 flex justify-center items-center flex-col"
         data-aos="fade-up"
       >
         <p className="rounded-2xl border-[var(--primary-color)] border inline-block py-1 px-4 bg-red-950 text-[var(--primary-color)] font-bold">
@@ -959,7 +1005,10 @@ function Home() {
           </Card>
         </div>
       </div>
-      <div  className="compatibility my-10 py-10 flex justify-center items-center flex-col"
+
+      {/* Blood Compatibility */}
+      <div
+        className="compatibility my-10 py-10 flex justify-center items-center flex-col"
         data-aos="fade-up"
       >
         <p className="rounded-2xl border-[var(--primary-color)] border inline-block py-1 px-4 bg-red-950 text-[var(--primary-color)] font-bold">
@@ -1069,7 +1118,10 @@ function Home() {
           </Card>
         </div>
       </div>
-      <div className="featured-donors my-10 py-10 flex justify-center items-center flex-col"
+
+      {/* Featured Donors */}
+      <div
+        className="featured-donors my-10 py-10 flex justify-center items-center flex-col"
         data-aos="fade-up"
       >
         <p className="rounded-2xl border-[var(--primary-color)] border inline-block py-1 px-4 bg-red-950 text-[var(--primary-color)] font-bold">
@@ -1087,7 +1139,10 @@ function Home() {
         </p>
         <DonorCarousel />
       </div>
-      <div className="nearby-hospitals my-10 py-10 flex justify-center items-center flex-col"
+
+      {/* Nearby Hospitals */}
+      <div
+        className="nearby-hospitals my-10 py-10 flex justify-center items-center flex-col"
         data-aos="fade-up"
       >
         <p className="rounded-2xl border-[var(--primary-color)] border inline-block py-1 px-4 bg-red-950 text-[var(--primary-color)] font-bold">
@@ -1394,7 +1449,10 @@ function Home() {
           </Card>
         </div>
       </div>
-      <div className="nearby-bank bg-[var(--bg-box-color)] my-10 py-10 flex justify-center items-center flex-col"
+
+      {/* Blood Banks */}
+      <div
+        className="nearby-bank bg-[var(--bg-box-color)] my-10 py-10 flex justify-center items-center flex-col"
         data-aos="fade-up"
       >
         <p className="rounded-2xl border-[var(--primary-color)] border inline-block py-1 px-4 bg-red-950 text-[var(--primary-color)] font-bold">
@@ -1839,7 +1897,10 @@ function Home() {
           </Card>
         </div>
       </div>
-      <div  className="testimonials my-10 py-10 flex justify-center items-center flex-col"
+
+      {/* Testimonials */}
+      <div
+        className="testimonials my-10 py-10 flex justify-center items-center flex-col"
         data-aos="fade-up"
       >
         <p className="rounded-2xl border-[var(--primary-color)] border inline-block py-1 px-4 bg-red-950 text-[var(--primary-color)] font-bold">
@@ -3215,7 +3276,9 @@ function Home() {
           </Card>
         </div>
       </div>
-      <Footer/>
+
+      {/* Footer */}
+      <Footer />
     </>
   );
 }

@@ -4,33 +4,32 @@ import bgImage from "../assets/regimage.png";
 import { Button } from "@heroui/react";
 import { Eye, EyeSlash } from "@gravity-ui/icons";
 import { useForm } from "react-hook-form";
+import { Link, useNavigate } from "react-router-dom";
 import "./UserReg.css";
+import api from "../api/api";
 
 function UserLogin() {
-  const [isVisible, setIsVisible] = useState(false);
-  const [isVisible2, setIsVisible2] = useState(false);
+
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
+    reset,
     watch,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm();
 
-  const onSubmit = (data) => console.log(data);
-
-  const today = new Date();
-
-  const minDate = new Date(
-    today.getFullYear() - 65,
-    today.getMonth(),
-    today.getDate(),
-  );
-
-  const maxDate = new Date(
-    today.getFullYear() - 18,
-    today.getMonth(),
-    today.getDate(),
-  );
+  const onSubmit = async (data) => {
+    try {
+      const response = await api.post("/login", data);
+      alert(response.data.message)
+      reset();
+      navigate('/');
+    } catch (error) {
+      alert(error.response?.data?.message || "Something went wrong");
+    }
+  };
 
   return (
     <>
@@ -354,7 +353,7 @@ function UserLogin() {
             </div>
           </div>
         </div>
-        <div className="form lg:w-[60%] h-[40rem] relative z-10 p-8 lg:p-20 my-20 m-2 rounded-xl lg:m-20 bg-[var(--bg-box-color)]">
+        <div className="form lg:w-[60%] h-[40rem] lg:sticky top-10 relative z-10 p-8 lg:p-20 my-20 m-2 rounded-xl lg:m-20 bg-[var(--bg-box-color)]">
           <h1 className="customFont text-3xl lg:text-4xl ">
             <img src={Logo} alt="Logo" className="w-15 mr-4 my-4 lg:hidden" />
             Sign In to Your Account
@@ -370,13 +369,13 @@ function UserLogin() {
             <div className="lg:grid lg:grid-cols-1">
               <div>
                 <label htmlFor="email-or-mobile">
-                  Email or Mobile No. <span className="text-red-500">*</span>
+                  Email <span className="text-red-500">*</span>
                 </label>
                 <input
-                  type="text"
-                  placeholder="Enter your email or mobile No."
+                  type="email"
+                  placeholder="Enter your email"
                   id="email-or-mobile"
-                  {...register("emailOrMobile", { required: "This field is required"})}
+                  {...register("email", { required: "This field is required"})}
                 />
                 {errors.emailOrMobile && (
                   <small className="text-red-400 my-1">
@@ -405,7 +404,7 @@ function UserLogin() {
               </div>
             </div>
             
-            <div>
+            {/* <div>
               <label className="flex items-center">
                 <input
                   type="checkbox"
@@ -413,19 +412,15 @@ function UserLogin() {
                 />
                Remember Me
               </label>
-            </div>
-            <Button
-              type="submit"
-              className="w-full bg-[var(--primary-color)] py-6 font-bold text-md"
-            >
-              Sign In
-            </Button>
+            </div> */}
+            
+            <input type={isSubmitting ? "disable" : "submit"} className=" w-full bg-[var(--primary-color)] my-4 py-6 font-bold text-md" value={isSubmitting ? "Submitting..." : "Sign In"}/> 
             <a href="" className="text-center text-red-500">Forgot Password?</a>
             <p className="text-center">
               Don't have an account? &nbsp;
-              <a href="" className="text-[var(--primary-color)]">
+              <Link to="/user-registration" className="text-[var(--primary-color)]">
                 Create Account
-              </a>
+              </Link>
             </p>
           </form>
         </div>

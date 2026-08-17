@@ -28,3 +28,12 @@ option:hover{
     background-color: var(--primary-color);
     color: red;
 }
+input[type="submit"]{
+    background-color: var(--primary-color);
+    text-align: center;
+}
+input[type="disable"]{
+    background-color: rgb(131, 51, 51);
+    text-align: center;
+
+}

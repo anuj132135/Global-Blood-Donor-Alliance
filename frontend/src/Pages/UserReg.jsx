@@ -7,20 +7,34 @@ import {
 import { Eye, EyeSlash } from "@gravity-ui/icons";
 import { useForm } from "react-hook-form"
 import "./UserReg.css";
+import { Link, useNavigate } from "react-router-dom";
+import api from "../api/api";
 
 function UserReg() {
 
-  const [isVisible, setIsVisible] = useState(false);
-  const [isVisible2, setIsVisible2] = useState(false);
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
+    reset,
     watch,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm()
 
-  const onSubmit = (data) => console.log(data);
+  // submit data
+ const onSubmit = async (data) => {
+  try {
+    const response = await api.post("/register", data);
+    alert(response.data.message)
+    reset();
+    navigate('/');
+  } catch (error) {
+    alert(error.response?.data?.message || "Something went wrong");
+  }
+};
 
+  // date of birth input
   const today = new Date();
 
   const minDate = new Date(
@@ -37,10 +51,13 @@ function UserReg() {
 
   return (
     <>
+   
+      <div className="fixed z-100 bottom-10 right-10 size-fit bg-${props.color}-100 "></div>
+
       <div
         className="relative lg:flex bg-cover bg-left bg-no-repeat bg-transparent-500 "
         style={{ backgroundImage: `url(${bgImage})` }}
-      >
+        >
         <div className="absolute inset-0 bg-black/60"></div>
         <div className=" p-20 w-[40%] relative z-10 hidden lg:block">
           <div className=" flex items-center">
@@ -48,7 +65,7 @@ function UserReg() {
             <h1 className="customFont text-xl">Global Blood Donor Alliance</h1>
           </div>
           <h1 className="customFont text-4xl mt-15">
-            Join the{" "}
+            Join the
             <span className="text-[var(--primary-color)]">
               Global Blood Donor Alliance
             </span>
@@ -431,12 +448,12 @@ function UserReg() {
                 {errors.email && <small className="text-red-400 my-1">This field is required</small>}
               </div>
               <div className="mt-4 md:mt-0">
-                <label htmlFor="phone">Mobile No. <span className="text-red-500">*</span></label>
-                <input type="text" placeholder="Enter your mobile no." id="phone" {...register("phone", { required: "This field is required",pattern: {
+                <label htmlFor="mobile">Mobile No. <span className="text-red-500">*</span></label>
+                <input type="text" placeholder="Enter your mobile no." id="mobile" {...register("mobile", { required: "This field is required",pattern: {
                   value: /^[6-9]\d{9}$/,
                   message: "Please enter a valid 10-digit mobile number",
                 }})} />
-                {errors.phone && <small className="text-red-400 my-1">{errors.phone.message}</small>}
+                {errors.mobile && <small className="text-red-400 my-1">{errors.mobile.message}</small>}
               </div>
             </div>
             <div className="lg:grid lg:grid-cols-2 gap-4">
@@ -464,7 +481,7 @@ function UserReg() {
               </div>
               <div className="mt-4 md:mt-0">
                 <label htmlFor="dob">Date of Birth<span className="text-red-500">*</span></label>
-                <input type="date" id="dob" {...register("dob", { required: 'This field is required', validate: (value) => {
+                <input type="date" id="dob" {...register("dateOfBirth", { required: 'This field is required', validate: (value) => {
                   const dob = new Date(value);
                   if (dob < minDate) {
                     return "Age must not be more than 65 years";
@@ -474,7 +491,7 @@ function UserReg() {
                   }
                   return true;
                 } })} />
-                {errors.dob && <small className="text-red-400 my-1">{errors.dob.message}</small>}
+                {errors.dateOfBirth && <small className="text-red-400 my-1">{errors.dateOfBirth.message}</small>}
               </div>
             </div>
             <div className="lg:grid lg:grid-cols-2 gap-4">
@@ -482,14 +499,14 @@ function UserReg() {
                 <label htmlFor="blood-grp">Blood Group <span className="text-red-500">*</span></label>
                 <select id="blood-grp" {...register("bloodGroup",{required: true})}>
                   <option value="">Select</option>
-                  <option value="a+">A+</option>
-                  <option value="a-">A-</option>
-                  <option value="b+">B+</option>
-                  <option value="b-">B-</option>
-                  <option value="ab+">AB+</option>
-                  <option value="ab-">AB-</option>
-                  <option value="o+">O+</option>
-                  <option value="o-">O-</option>
+                  <option value="A+">A+</option>
+                  <option value="A-">A-</option>
+                  <option value="B+">B+</option>
+                  <option value="B-">B-</option>
+                  <option value="AB+">AB+</option>
+                  <option value="AB-">AB-</option>
+                  <option value="O+">O+</option>
+                  <option value="O-">O-</option>
                 </select>
                 {errors.bloodGroup && <small className="text-red-400 my-1">This field is required</small>}
               </div>
@@ -529,14 +546,14 @@ function UserReg() {
               {errors.address && <small className="text-red-400 my-1">This field is required</small>}
             </div>
             <div>
-              <label className="flex items-center">
+              <label className="flex items-center flex-wrap">
                 <input
                   type="checkbox"
                   {...register("terms", {
                     required: "You must accept the terms and conditions",
                   })}
                 />
-                I accept the &nbsp;<a href="" className="text-red-500 underline"> Terms & Conditions </a> &nbsp; and &nbsp; <a href="" className="text-red-500 underline"> Privacy Policy</a>.
+                I accept the &nbsp;<Link to="/terms-and-conditions" className="text-red-500 underline"> Terms & Conditions </Link> &nbsp; and &nbsp; <Link to="/privacy-policy" className="text-red-500 underline"> Privacy Policy</Link>.
               </label>
               {errors.terms && (
                 <small className="text-red-400">
@@ -544,8 +561,8 @@ function UserReg() {
                 </small>
               )}
             </div>
-            <Button type="submit" className="w-full bg-[var(--primary-color)] py-6 font-bold text-md">Create Account</Button>
-            <p className="text-center">Already have an account? <a href="" className="text-[var(--primary-color)]">sign in</a></p>
+            <input type={isSubmitting ? "disable" : "submit"} className=" w-full bg-[var(--primary-color)] py-6 font-bold text-md" value={isSubmitting ? "Submitting..." : "Create Account"}/> 
+            <p className="text-center">Already have an account? <Link to="/user-login" className="text-[var(--primary-color)]">sign in</Link></p>
           </form>
         </div>
       </div>

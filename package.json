@@ -1,0 +1,24 @@
+{
+  "name": "blood-donor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+     "dev": "concurrently \"npm start --prefix backend\" \"npm run dev --prefix frontend\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anuj132135/Global-Blood-Donor-Alliance.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/anuj132135/Global-Blood-Donor-Alliance/issues"
+  },
+  "homepage": "https://github.com/anuj132135/Global-Blood-Donor-Alliance#readme",
+  "devDependencies": {
+    "concurrently": "^10.0.5"
+  }
+}
