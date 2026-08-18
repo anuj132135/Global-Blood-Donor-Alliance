@@ -19,6 +19,7 @@ import { useNavigate } from "react-router-dom";
 import api from "../api/api";
 import { useDispatch, useSelector } from "react-redux";
 import {setUser} from "../Authentication/authSlice"
+import {setHospital} from "../Authentication/hospitalAuthSlice"
 import {setLoader} from "../Authentication/loaderSlice"
 import { HomeSkeleton } from "../Skeleton/HomeSkeleton";
 import BloodRequest from "../Components/BloodRequest";
@@ -27,7 +28,9 @@ import { Droplet, DropletOffIcon } from "lucide-react";
 function Home() {
 
   const user = useSelector((state) => state.user.value);
+  const hospital = useSelector((state) => state.hospital.value);
   const loader = useSelector((state) => state.loader.value);
+  
   const dispatch = useDispatch()
 
   const navigate = useNavigate();
@@ -43,7 +46,21 @@ function Home() {
         dispatch(setLoader(false));
       }
     };
+
+    const getHospitalProfile = async () => {
+      try {
+        const response = await api.get("/hospital-profile");
+        dispatch(setHospital(response.data.hospital));
+      } catch (error) {
+       dispatch(setHospital(null));
+      }finally{
+        dispatch(setLoader(false));
+      }
+    };
+
     getProfile();
+    getHospitalProfile();
+
   }, [navigate]);
   
   return (

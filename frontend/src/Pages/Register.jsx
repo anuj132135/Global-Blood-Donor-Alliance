@@ -4,6 +4,8 @@ import bgImage from "../assets/regimage.png";
 import "../Pages/UserReg.css";
 import {Tabs} from "@heroui/react";
 import UserRegister from "../Components/UserRegister";
+import HospitalRegister from "../Components/HospitalRegister";
+import BloodBankRegister from "../Components/BloodBankRegister";
 
 function UserReg() {
 
@@ -384,7 +386,7 @@ function UserReg() {
             </div>
           </div>
         </div>
-        <div className="py-20 lg:pr-10">
+        <div className="py-20 lg:pr-10 ">
           <Tabs className="w-full">
             <Tabs.ListContainer className="bg-[var(--bg-box-color)]">
               <Tabs.List aria-label="Options">
@@ -406,10 +408,10 @@ function UserReg() {
               <UserRegister/>
             </Tabs.Panel>
             <Tabs.Panel className="pt-4" id="hospital">
-              <p>Track your metrics and analyze performance data.</p>
+              <HospitalRegister/>
             </Tabs.Panel>
             <Tabs.Panel className="pt-4" id="blood_bank">
-              <p>Generate and download detailed reports.</p>
+              <BloodBankRegister/>
             </Tabs.Panel>
           </Tabs>
         </div>

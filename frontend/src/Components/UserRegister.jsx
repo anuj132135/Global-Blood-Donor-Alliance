@@ -85,7 +85,7 @@ function UserRegister() {
                 Email <span className="text-red-500">*</span>
               </label>
               <input
-                type="text"
+                type="email"
                 placeholder="Enter your email"
                 id="email"
                 {...register("email", { required: true })}

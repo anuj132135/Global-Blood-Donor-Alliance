@@ -9,6 +9,7 @@ import BloodRequest from "./BloodRequest";
 
 function Header() {
   const user = useSelector((state) => state.user.value);
+  const hospital = useSelector((state) => state.hospital.value);
 
   const navigate = useNavigate();
 
@@ -145,7 +146,7 @@ function Header() {
             </div>
             {/* Buttons */}
             <div className="hidden lg:ml-6 lg:flex absolute inset-y-0 right-0 pr-2 lg:static lg:inset-auto lg:ml-6 lg:pr-0 ">
-              {user == null ? (
+              {user  === null || hospital === null  ? (
                 <>
                   <Button
                     variant="ghost"
@@ -169,7 +170,7 @@ function Header() {
               </Button>
             </div>
             {/* User Profile */}
-            {user !== null ? (
+            {user !== null || hospital !== null ? (
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 lg:static lg:inset-auto lg:ml-6 lg:pr-0">
                 <button
                   type="button"
@@ -297,7 +298,7 @@ function Header() {
             >
               Contact Us
             </NavLink>
-            {user == null ?
+            {user == null || hospital == null ?
               <>
                 <Button
                   variant="ghost"
